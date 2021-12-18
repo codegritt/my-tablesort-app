@@ -10,6 +10,9 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   
   displayedColumns = ['name','username','email'];
   dataSource!:MatTableDataSource<any>;
