@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   
-  displayedColumns = ['name','username','email'];
+  displayedColumns = ['id','first_name','last_name','email'];
   dataSource!:MatTableDataSource<any>;
 
   @ViewChild('paginator') paginator! : MatPaginator; 
