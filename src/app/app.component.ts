@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   
-  displayedColumns = ['id','first_name','last_name','email'];
+  displayedColumns = ['id','first_name','last_name','email','Action'];
   dataSource!:MatTableDataSource<any>;
 
   @ViewChild('paginator') paginator! : MatPaginator; 
@@ -33,5 +33,9 @@ export class AppComponent implements OnInit {
   filterData($event : any){
     this.dataSource.filter = $event.target.value;
   }
-
+onRemove(index:number){
+  console.log(index);
+  this.dataSource.data.splice(index,1);
+  this.dataSource.filter="";
+}
 }
