@@ -11,12 +11,17 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { materialize } from 'rxjs';
+import{MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,7 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
