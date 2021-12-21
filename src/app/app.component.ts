@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   
   constructor(private dialogRef : MatDialog,service: DataService){}
-
+  
   openDialog(){
     
     this.dialogRef.open(PopUpComponent,{
