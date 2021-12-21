@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   constructor(private dialogRef : MatDialog,service: DataService){}
 
   openDialog(){
-    this.listData=[];
+    
     this.dialogRef.open(PopUpComponent,{
       
       data:{
@@ -65,9 +65,6 @@ onRemove(index:number){
   this.dataSource.filter="";
 }
  
-public addItem(): void{
-  this.listData.push(this.profileForm.value);
-  this.profileForm.reset();
-}
+
 
 }
