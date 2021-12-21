@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
-import{MatDialog} from '@angular/material/dialog';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
@@ -40,7 +40,6 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatDialog,
     MatSelectModule,
     FormsModule,
     MatRadioModule,
