@@ -3,6 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from './data.service';
+import{MatDialog} from '@angular/material/dialog';
+import { PopUpComponent } from './pop-up/pop-up.component';
+
 
 
 @Component({
@@ -11,6 +14,7 @@ import { DataService } from './data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  service: any;
   title(title: any) {
     throw new Error('Method not implemented.');
   }
@@ -21,7 +25,18 @@ export class AppComponent implements OnInit {
   @ViewChild('paginator') paginator! : MatPaginator; 
   @ViewChild(MatSort) matSort! : MatSort;
 
-  constructor(private service: DataService) {}
+  
+  constructor(private dialogRef : MatDialog,service: DataService){}
+
+  openDialog(){
+    this.dialogRef.open(PopUpComponent,{
+      data : {
+        name : 'Samuel'
+      }
+    });
+  }
+
+  
 
   ngOnInit() {
     this.service.getUserData().subscribe((response:any) =>{
