@@ -16,6 +16,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 export class AppComponent implements OnInit {
   service: any;
   profileForm: any;
+  listData: any;
   title(title: any) {
     throw new Error('Method not implemented.');
   }
@@ -30,7 +31,9 @@ export class AppComponent implements OnInit {
   constructor(private dialogRef : MatDialog,service: DataService){}
 
   openDialog(){
+    this.listData=[];
     this.dialogRef.open(PopUpComponent,{
+      
       data:{
         first_Name:[''],
         last_Name:[''],
@@ -60,6 +63,11 @@ onRemove(index:number){
   console.log(index);
   this.dataSource.data.splice(index,1);
   this.dataSource.filter="";
+}
+ 
+public addItem(): void{
+  this.listData.push(this.profileForm.value);
+  this.profileForm.reset();
 }
 
 }

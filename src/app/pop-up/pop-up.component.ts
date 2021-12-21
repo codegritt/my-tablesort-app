@@ -14,8 +14,6 @@ export class PopUpComponent  {
   profileForm = this.formBuilder.group({
     firstName:[''],
     lastName:[''],
-    address:[''],
-    dob:[''],
     gender:['']
   });
  
