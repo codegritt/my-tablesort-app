@@ -9,27 +9,24 @@ import { FormBuilder } from '@angular/forms';
 })
 export class PopUpComponent  {
 listData:any;
-
   constructor(private formBuilder:FormBuilder){}
 
+
    profileForm = this.formBuilder.group({
-    
     firstName:[''],
     lastName:[''],
     gender:['']
     
   });
- 
+  
   saveForm(){
     
     console.log('Form data is ', this.profileForm.value);
   }
- public addItem():void{
-   this.listData.push(this.profileForm.value);
-   this.profileForm.reset();
- }
+  public addItem():void{
+    this.listData.push(this.profileForm.value);
+    this.profileForm.reset();
+  }
 
- ngOnInit(){
-   
- }
+ 
  }
