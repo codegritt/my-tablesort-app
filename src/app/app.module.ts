@@ -10,10 +10,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
-import { materialize } from 'rxjs';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import{MatDialogModule} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import{MatDialog} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -21,6 +26,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   declarations: [
     AppComponent,
     PopUpComponent
+    
   ],
 
 
@@ -35,7 +41,13 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDialog,
+    MatSelectModule,
+    FormsModule,
+    MatRadioModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

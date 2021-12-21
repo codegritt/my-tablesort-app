@@ -1,24 +1,26 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
-import { MatDialogRef } from '@angular/material/dialog';
-import { MatDialogConfig } from '@angular/material/dialog';
+import { Component} from '@angular/core';
+
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css']
 })
-export class PopUpComponent implements OnInit {
+export class PopUpComponent  {
 
-  firstName;
-  constructor(@Inject(MAT_DIALOG_DATA) public data) {
-    this.firstName = data.name
+  constructor(private formBuilder:FormBuilder){}
+
+  profileForm = this.formBuilder.group({
+    firstName:[''],
+    lastName:[''],
+    address:[''],
+    dob:[''],
+    gender:['']
+  });
+ 
+  saveForm(){
+    console.log('Form data is ', this.profileForm.value);
   }
-
-  ngOnInit(): void {
-  }
-
-}
-
-}
+ 
+ }
