@@ -14,22 +14,29 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  service: any;
-  profileForm: any;
- listData:any;
-
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
   
-  displayedColumns = ['id','first_name','last_name','email','Action'];
+  
+ displayedColumns = ['id','first_name','last_name','email','Action'];
   dataSource!:MatTableDataSource<any>;
 
   @ViewChild('paginator') paginator! : MatPaginator; 
   @ViewChild(MatSort) matSort! : MatSort;
-
+  profileForm: any;
+ 
   
-  constructor(private dialogRef : MatDialog,service: DataService){}
+  constructor(private dialogRef : MatDialog,private _service: DataService){}
+  
+  
+ngOnInit() {
+    this._service.getUserData().subscribe((response:any) =>{
+      this.dataSource = new MatTableDataSource(response);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.matSort;
+    })
+  }
+  filterData($event : any){
+    this.dataSource.filter = $event.target.value;
+  }
   
   openDialog(){
     
@@ -49,17 +56,7 @@ export class AppComponent implements OnInit {
    
   
 
-  ngOnInit() {
-    this.service.getUserData().subscribe((response:any) =>{
-      this.dataSource = new MatTableDataSource(response);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.matSort;
-    })
-  }
-
-  filterData($event : any){
-    this.dataSource.filter = $event.target.value;
-  }
+ 
 onRemove(index:number){
   console.log(index);
   this.dataSource.data.splice(index,1);
