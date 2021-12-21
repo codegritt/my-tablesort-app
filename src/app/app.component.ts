@@ -15,6 +15,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 })
 export class AppComponent implements OnInit {
   service: any;
+  profileForm: any;
   title(title: any) {
     throw new Error('Method not implemented.');
   }
@@ -30,12 +31,18 @@ export class AppComponent implements OnInit {
 
   openDialog(){
     this.dialogRef.open(PopUpComponent,{
-      data : {
-        name : 'Samuel'
+      data:{
+        first_Name:[''],
+        last_Name:[''],
+        email:[''],
       }
-    });
-  }
+      });
 
+    }
+    saveForm(){
+      console.log('Form data is ', this.profileForm.value);
+    }
+   
   
 
   ngOnInit() {
