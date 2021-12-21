@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { DataService } from './data.service';
 import{MatDialog} from '@angular/material/dialog';
 import { PopUpComponent } from './pop-up/pop-up.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogConfig } from '@angular/material/dialog';
 
 
 
