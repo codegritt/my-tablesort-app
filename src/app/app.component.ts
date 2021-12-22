@@ -16,6 +16,11 @@ import { PopUpComponent } from './pop-up/pop-up.component';
 export class AppComponent implements OnInit {
   
   
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  
+  
  displayedColumns = ['id','first_name','last_name','email','Action'];
   dataSource!:MatTableDataSource<any>;
 
@@ -50,6 +55,7 @@ ngOnInit() {
       });
 
     }
+
     saveForm(){
       console.log('Form data is ', this.profileForm.value);
     }
@@ -62,7 +68,6 @@ onRemove(index:number){
   this.dataSource.data.splice(index,1);
   this.dataSource.filter="";
 }
-
 
 
 }
