@@ -1,21 +1,27 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
   styleUrls: ['./pop-up.component.css']
 })
-export class PopUpComponent  {
+export class PopUpComponent implements OnInit {
+
+
 listData:any;
   constructor(private formBuilder:FormBuilder){}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
+ 
 
    profileForm = this.formBuilder.group({
-    firstName:[''],
-    lastName:[''],
-    gender:['']
+    firstName:['',Validators.required],
+    lastName:['',Validators.required],
+    gender:['',Validators.required]
     
   });
   
