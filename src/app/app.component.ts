@@ -14,60 +14,60 @@ import { PopUpComponent } from './pop-up/pop-up.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
-  
+
+
   title(title: any) {
     throw new Error('Method not implemented.');
   }
-  
-  
- displayedColumns = ['id','first_name','last_name','email','Action'];
-  dataSource!:MatTableDataSource<any>;
 
-  @ViewChild('paginator') paginator! : MatPaginator; 
-  @ViewChild(MatSort) matSort! : MatSort;
+
+  displayedColumns = ['id', 'first_name', 'last_name', 'email', 'Action'];
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild(MatSort) matSort!: MatSort;
   profileForm: any;
- 
-  
-  constructor(private dialogRef : MatDialog,private _service: DataService){}
-  
-  
-ngOnInit() {
-    this._service.getUserData().subscribe((response:any) =>{
+
+
+  constructor(private dialogRef: MatDialog, private _service: DataService) { }
+
+
+  ngOnInit() {
+    this._service.getUserData().subscribe((response: any) => {
       this.dataSource = new MatTableDataSource(response);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.matSort;
     })
   }
-  filterData($event : any){
+  filterData($event: any) {
     this.dataSource.filter = $event.target.value;
   }
-  
-  openDialog(){
-    
-    this.dialogRef.open(PopUpComponent,{
-      
-      data:{
-        first_Name:[''],
-        last_Name:[''],
-        email:[''],
+
+  openDialog() {
+
+    this.dialogRef.open(PopUpComponent, {
+
+      data: {
+        first_Name: [''],
+        last_Name: [''],
+        email: [''],
       }
-      });
+    });
 
-    }
+  }
 
-    saveForm(){
-      console.log('Form data is ', this.profileForm.value);
-    }
-   
-  
+  saveForm() {
+    console.log('Form data is ', this.profileForm.value);
+  }
 
- 
-onRemove(index:number){
-  console.log(index);
-  this.dataSource.data.splice(index,1);
-  this.dataSource.filter="";
-}
+
+
+
+  onRemove(index: number) {
+    console.log(index);
+    this.dataSource.data.splice(index, 1);
+    this.dataSource.filter = "";
+  }
 
 
 }
